@@ -12,86 +12,63 @@
             <h1>Online Veterinary Pharmacy</h1>
         </div>
     </header>
-    <div class="container">
-        <section class="clinic-list">
-            <h2>Veterinary Clinics in Toronto</h2>
-            <div class="clinic-grid clinics">
-                <!--<div class="clinic">
-                    <h3>Bay Cat and Dog Hospital</h3>
-                    <p><strong>Address:</strong> 525 King St. East</p>
-                    <p><strong>Phone:</strong> 416-941-8920</p>
-                    <p><strong>Distance:</strong> 5 km</p>
-                    <p><strong>Availability:</strong> Mon-Fri 9am-6pm</p>
-                    <p><strong>Next Available Time:</strong> Today at 2:30 PM</p>
-                </div>
-                <div class="clinic">
-                    <h3>Birchmount Animal Hospital</h3>
-                    <p><strong>Address:</strong> 1563 Birchmount Road, Scarborough</p>
-                    <p><strong>Phone:</strong> 416-752-6048</p>
-                    <p><strong>Distance:</strong> 12 km</p>
-                    <p><strong>Availability:</strong> Mon-Fri 8am-8pm</p>
-                    <p><strong>Next Available Time:</strong> Tomorrow at 10:00 AM</p>
-                </div>
-                <div class="clinic">
-                    <h3>Downtown Animal Hospital</h3>
-                    <p><strong>Address:</strong> 579 Church St, Toronto</p>
-                    <p><strong>Phone:</strong> 416-966-5122</p>
-                    <p><strong>Distance:</strong> 8 km</p>
-                    <p><strong>Availability:</strong> Mon-Sat 9am-7pm</p>
-                    <p><strong>Next Available Time:</strong> Today at 3:00 PM</p>
-                </div>
-                <div class="clinic">
-                    <h3>Blue Cross Animal Hospital</h3>
-                    <p><strong>Address:</strong> 132 Danforth Ave, Toronto</p>
-                    <p><strong>Phone:</strong> 416-469-1121</p>
-                    <p><strong>Distance:</strong> 10 km</p>
-                    <p><strong>Availability:</strong> Mon-Fri 9am-5pm</p>
-                    <p><strong>Next Available Time:</strong> Today at 4:00 PM</p>
-                </div>
-                <div class="clinic">
-                    <h3>The Animal Clinic</h3>
-                    <p><strong>Address:</strong> 106 Mutual St, Toronto</p>
-                    <p><strong>Phone:</strong> 416-868-1545</p>
-                    <p><strong>Distance:</strong> 7 km</p>
-                    <p><strong>Availability:</strong> Mon-Fri 8am-6pm</p>
-                    <p><strong>Next Available Time:</strong> Tomorrow at 9:30 AM</p>
-                </div> --!>
-            </div>
-        </section>
-        <section class="symptom-form">
-            <h2>Describe Your Pet's Symptoms</h2>
-            <form id="symptomForm">
-                <div class="form-group">
-                    <label for="symptoms">Symptoms:</label>
-                    <textarea id="symptoms" name="symptoms" rows="5" required></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="photo">Upload a Photo (optional):</label>
-                    <input type="file" id="photo" name="photo" accept="image/*">
-                </div>
-                <input type="submit" value="Submit">
-            </form>
-            <div id="response"></div>
-        </section>
-    </div>
+	<main class="content">
+		<h2>Veterinary Clinics in Toronto</h2>
+		<section id="clinic-list">
+			
+		</section>
+		
+		<!-- Pagination Controls -->
+		<div id="pagination_container"></div>
+		
+		<section class="symptom-form">
+			<h2>Describe Your Pet's Symptoms</h2>
+			<form id="symptomForm">
+				<div class="form-group">
+					<label for="symptoms">Symptoms:</label>
+					<textarea id="symptoms" name="symptoms" rows="5" required></textarea>
+				</div>
+				<div class="form-group">
+					<label for="photo">Upload a Photo (optional):</label>
+					<input type="file" id="photo" name="photo" accept="image/*">
+				</div>
+				<input type="submit" value="Submit">
+			</form>
+			<div id="response"></div>
+		</section>
+	</main>
 
-    <script>
-        document.getElementById('symptomForm').addEventListener('submit', function(e) {
-            e.preventDefault();
 
-            const symptoms = document.getElementById('symptoms').value;
-            const responseDiv = document.getElementById('response');
 
-            // Display a fixed dummy diagnosis
-            responseDiv.innerHTML = `
-                <strong>Diagnosis:</strong>
-                <p>Based on the symptoms, your pet might be experiencing mild discomfort. Please consult a vet for a professional diagnosis.</p>
-            `;
-        });
-    </script>
 	
+
 	<script>
-        
-    </script>
+		const clinic_container = document.getElementById("clinic-list");
+		function showPage(pageNumber) {
+			// Hide all pages
+			const pages = document.querySelectorAll('.clinic-grid');
+			pages.forEach(page => {
+				page.classList.add("hidden")
+			});
+			// Show the selected page
+			const selectedPage = clinic_container.children[pageNumber];
+			if (selectedPage) {
+				selectedPage.classList.remove("hidden")
+			}
+		}
+	
+		document.getElementById('symptomForm').addEventListener('submit', function(e) {
+			e.preventDefault();
+
+			const symptoms = document.getElementById('symptoms').value;
+			const responseDiv = document.getElementById('response');
+
+			// Display a fixed dummy diagnosis
+			responseDiv.innerHTML = `
+				<strong>Diagnosis:</strong>
+				<p>Based on the symptoms, your pet might be experiencing mild discomfort. Please consult a vet for a professional diagnosis.</p>
+			`;
+		});
+	</script>
 </body>
 </html>

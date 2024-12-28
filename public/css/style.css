@@ -8,6 +8,14 @@ body {
 	width: 90%;
 	margin: auto;
 }
+.hidden {
+	display: none !important;
+}
+.content {
+	max-width: 1200px;
+	padding: 1rem;
+	margin: auto;
+}
 header {
 	background: #81d4fa; /* Light blue */
 	color: #ffffff;
@@ -18,21 +26,21 @@ header {
 header h1 {
 	margin: 0;
 }
-.clinic-list {
+#clinic-list {
 	margin: 20px 0;
 }
 .clinic-grid {
 	display: flex;
 	flex-wrap: wrap;
-	gap: 20px;
-	justify-content: space-between;
+	justify-content: center;
+	gap: 2rem;
 }
 .clinic {
 	background: #c8e6c9; /* Light green */
 	border: 1px solid #a5d6a7; /* Slightly darker green */
 	border-radius: 10px;
 	padding: 15px;
-	width: 30%;
+	width: 25%;
 	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 .clinic h3 {
@@ -85,4 +93,56 @@ input[type="submit"]:hover {
 	.clinic {
 		width: 100%;
 	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+
+.content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#pagination_container {
+	display: flex;
+	justify-content: center;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.page-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    margin: 0 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.page-button:hover {
+    background-color: #0056b3;
+}
+
+.page-button:focus {
+    outline: none;
 }
